@@ -1,0 +1,75 @@
+$primary-color: #2C62B9; // Replace with your primary color
+$hover-color: rgb(180, 173, 173);   // Replace with your hover color
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+}
+
+.image {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.navButtons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 16px;
+}
+
+.navButton {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.thumbnailButton {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  
+  &.selected {
+    border-color: $primary-color;
+  }
+
+  &:hover {
+    border-color: $hover-color;
+  }
+}
+
+.thumbnailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

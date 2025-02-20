@@ -1,0 +1,16 @@
+import { AntdTable } from "@/lib/antd/components"
+import { useAppDispatch, useAppSelector } from "@/lib/redux/Hooks"
+import { useCoCauUser } from "../../hooks/useNguoiDungCoCauColumn"
+import { useEffect, useState } from "react"
+import { ISearchUser } from "@/features/user/models"
+import { SearchUser } from "@/features/user/redux/Actions"
+import { useFolderContext } from "@/contexts/FolderContext"
+
+
+ const ThongTin = () => {
+
+    const folderContext = useFolderContext();
+    console.log(folderContext);
+    return <>Thông tin</>
+}  
+export  {ThongTin};
