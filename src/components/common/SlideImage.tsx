@@ -6,7 +6,7 @@ import styles from "./SlideImage.module.scss";
 export const SlideImage = ({ images }: { images: string[] }) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
     // const images = [
-    //     "https://csdlvhttdl.dienbien.gov.vn//sites/qldl/Shared%20Documents/HinhAnh/DoanhNghiep/2024-05-02-vyhliy/du-lich-dien-bien-co-gi_uAYUTghs3EyBDcB6_jpg.jpg",
+    //     "https://csdlvhmbf.hanhchinhcong.net//sites/qldl/Shared%20Documents/HinhAnh/DoanhNghiep/2024-05-02-vyhliy/du-lich-dien-bien-co-gi_uAYUTghs3EyBDcB6_jpg.jpg",
     //     "https://generated.vusercontent.net/placeholder.svg",
     //     "https://generated.vusercontent.net/placeholder.svg",
     //     "https://generated.vusercontent.net/placeholder.svg",

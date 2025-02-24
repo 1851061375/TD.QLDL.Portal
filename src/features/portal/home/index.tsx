@@ -137,7 +137,7 @@ export const TrangChu = () => {
         </Row>
 
         <Divider />
-        <Title level={4}>Vẻ đẹp Điện Biên</Title>
+        <Title level={4}>Vẻ đẹp thiên nhiên</Title>
         <AnhDepDienBien />
       </div >
 

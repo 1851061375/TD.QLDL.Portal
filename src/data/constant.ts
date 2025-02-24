@@ -5,4 +5,4 @@ export const SIDER_MENU_WIDTH = "200px";
 export const FORMAT_DATE = "DD/MM/YYYY HH:mm:ss";
 export const FORMAT_DATE_WITHOUT_TIME = "DD/MM/YYYY";
 
-export const Domain = "https://csdlvhttdl.dienbien.gov.vn/";
+export const Domain = "https://csdlvhmbf.hanhchinhcong.net/";
