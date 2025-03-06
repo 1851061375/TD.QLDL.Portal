@@ -39,15 +39,15 @@ function FooterLayout() {
                         <h6>Thông tin về Sở Văn hóa, Thể thao và Du lịch</h6>
                         <p className="text-justify">
                             Cổng thông tin điện tử tổng hợp Sở Văn hóa, Thể thao và Du lịch<br />
-                            Chịu trách nhiệm nội dung: Ông Phùng Bảo Lâm - Giám đốc Sở Văn hóa, Thể thao và Du lịch<br />
-                            Giấy phép thiết lập Trang TTĐT tổng hợp trên mạng số 238/GP-STTTT do Sở Thông tin và Truyền thông cấp ngày 18 tháng 02 năm 2022
+                            Chịu trách nhiệm nội dung: Giám đốc Sở Văn hóa, Thể thao và Du lịch<br />
+                            Giấy phép thiết lập Trang TTĐT tổng hợp trên mạng do Sở Thông tin và Truyền thông cấp
                         </p>
                     </div>
 
                     <div className="col-xs-6 col-md-3">
                         <h6>Liên hệ</h6>
                         <ul className="footer-links">
-                            <li>Địa chỉ: 175 Tây Sơn - Đống Đa - Hà Nội -</li>
+                            <li>Địa chỉ: 175 Tây Sơn - Đống Đa - Hà Nội</li>
                             <li>Điện thoại: 0215.123.321 (Văn phòng) - 0215.456.789 (Ban Quản trị)</li>
                             <li>Email: <a href="mailto:svhttdldienbien@gmail.com">svhttdld@gmail.com</a></li>
                         </ul>

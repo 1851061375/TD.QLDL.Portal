@@ -1,18 +1,25 @@
 import axios from "axios";
 
-// export const API_URL = process.env.REACT_APP_API_URL;
-// export const API_VERSION = process.env.REACT_APP_API_VERSION;
-// export const GATEWAY_URL = process.env.REACT_APP_GATEWAY_URL;
-// export const GATEWAY_TOKEN = process.env.REACT_APP_GATEWAY_TOKEN;
+export const ORIGIN_API_URL = import.meta.env.VITE_APP_API_URL;
+export const API_VERSION = import.meta.env.VITE_APP_API_VERSION;
 
 // export const HOST_API = `${API_URL}/api/v1/`;
 // export const FILE_URL = `${process.env.REACT_APP_FILE_URL}/api/v1/attachments/minio/`;
 
-export const API_URL = "https://csdlvhmbf.hanhchinhcong.net/openapi";
+export const API_URL = `${ORIGIN_API_URL}/openapi`;
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+  return match ? match[2] : null;
+}
+
+// Lấy token
 const jwtToken =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDAzOTUzNTksImV4cCI6MjA1NTkyODE1OSwic3ViIjpudWxsLCJoYXNocHdkIjoiaVhKWmY0MEJFUlViNUgrQnhuUXlsUT09IiwiY29udGV4dCI6eyJ1c2VyIjp7InVzZXJOYW1lIjoiYWRtaW4iLCJkaXNwbGF5TmFtZSI6IlF14bqjbiB0cuG7iyB2acOqbiJ9fX0.La34bGsnFc1Vn3SolBGT_BVIizFnDATYCuUP49YiLtQ";
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDA3Mjk5MzgsImV4cCI6MjA1NjI2MjczOCwic3ViIjpudWxsLCJoYXNocHdkIjoiaVhKWmY0MEJFUlViNUgrQnhuUXlsUT09IiwiY29udGV4dCI6eyJ1c2VyIjp7InVzZXJOYW1lIjoiZGVtbyIsImRpc3BsYXlOYW1lIjpudWxsfX19.7Ula0a-QpOownf6KgAcN24B79cJlx4lQTwBnclbUwMU";
 
 export const requestGET = async (URL, params) => {
+  console.log("requestGET -> URL", URL);
+  console.log("requestGET -> params", params);
   try {
     const res = await axios.get(`${API_URL}/${URL}`, {
       headers: {

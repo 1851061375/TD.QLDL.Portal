@@ -182,7 +182,7 @@ function NavbarLayout() {
         }
         else {
             Cookies.remove('FedAuth');
-            setHrefBtnDangNhap('/_forms/default.aspx');
+            setHrefBtnDangNhap('/sites/qldl');
         }
     });
 
