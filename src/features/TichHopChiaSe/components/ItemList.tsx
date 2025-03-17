@@ -89,7 +89,7 @@ export const TichHopChiSeTable = () => {
                         }
                     )
                 );
-                setData(res.data ?? []);
+                setData(res?.data ?? []);
                 setCount(res?.count ?? 0);
                 setLoading(false);
 

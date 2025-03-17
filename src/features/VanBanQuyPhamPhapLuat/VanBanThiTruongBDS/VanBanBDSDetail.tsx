@@ -29,8 +29,8 @@ export const VanBanBDSDetail: FC<Props> = ({ id, chiTietModal, setChiTietModal }
             setLoadding(true);
             const res = await requestGET(`GetVanBanQPPLThiTruongBDSPublic?id=${id}`);
 
-            if (res && res.data) {
-                form.setFieldsValue(res.data);
+            if (res && res?.data) {
+                form.setFieldsValue(res?.data);
             }
             setLoadding(false);
         };

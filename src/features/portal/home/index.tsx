@@ -38,7 +38,7 @@ export const TrangChu = () => {
     const fetch = async () => {
       setState(prevState => ({ ...prevState, loadingDoanhNghiep: true }));
       const res = await fetchData();
-      setState(prevState => ({ ...prevState, doanhnghiepluhanh: res.data ?? [], loadingDoanhNghiep: false }));
+      setState(prevState => ({ ...prevState, doanhnghiepluhanh: res?.data ?? [], loadingDoanhNghiep: false }));
     };
     fetch();
   }, []);
@@ -47,7 +47,7 @@ export const TrangChu = () => {
     const fetch = async () => {
       setState(prevState => ({ ...prevState, loadingKhaoSat: true }));
       const res = await fetchDataKhaoSat();
-      setState(prevState => ({ ...prevState, khaosat: res.data ?? [], loadingKhaoSat: false }));
+      setState(prevState => ({ ...prevState, khaosat: res?.data ?? [], loadingKhaoSat: false }));
     };
     fetch();
   }, []);

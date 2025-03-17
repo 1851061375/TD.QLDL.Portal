@@ -31,7 +31,7 @@ const fetchFilterData = async () => {
     const res = await requestGET(`dmdiabans`, { code: '11' });
     const resNgonNgu = await requestGET(`dmchungs`, { groupcode: 'NgoaiNgu' });
     const resLoaithe = await requestGET(`dmchungs`, { groupcode: 'LTHDV' });
-    return { diaBan: res.data, ngonNgu: resNgonNgu.data, loaiThe: resLoaithe.data };
+    return { diaBan: res?.data, ngonNgu: resNgonNgu.data, loaiThe: resLoaithe.data };
 };
 
 export const ItemList = () => {
@@ -65,7 +65,7 @@ export const ItemList = () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(state.page, state.offset, state.search,
                 state.diaBanSelected, state.ngonNguSelected, state.loaiTheSelected, state.soThe);
-            setState(prevState => ({ ...prevState, data: res.data ?? [], totalItems: res.count ?? 0, loading: false }));
+            setState(prevState => ({ ...prevState, data: res?.data ?? [], totalItems: res?.data ?? 0, loading: false }));
         };
         fetch();
     }, [state.page, state.offset, state.search, state.diaBanSelected,

@@ -6,7 +6,7 @@ import { ILoaiDichVu } from "../models";
 export const SearchLoaiDichVu = createAsyncThunk<IPaginationResponse<ILoaiDichVu[]>, IPickSearch<ILoaiDichVu, "tenLoaiDichVu">>("SearchLoaiDichVu", async (params, thunkApi) => {
     try{
         const res = await loaiDichVuApi.Search(params)
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -15,7 +15,7 @@ export const SearchLoaiDichVu = createAsyncThunk<IPaginationResponse<ILoaiDichVu
 export const GetLoaiDichVu = createAsyncThunk<IResult<ILoaiDichVu>, string>("GetLoaiDichVu", async (id, thunkApi) => {
     try{
         const res = await loaiDichVuApi.Get(id)
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -27,7 +27,7 @@ export const AddLoaiDichVu = createAsyncThunk("AddLoaiDichVu", async (data : ILo
         if(res.status === 201){
             thunkApi.dispatch(SearchLoaiDichVu({reFetch: true}))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -39,7 +39,7 @@ export const UpdateLoaiDichVu = createAsyncThunk("UpdateLoaiDichVu", async (data
         if(res.status === 200){
             thunkApi.dispatch(SearchLoaiDichVu({reFetch: true}))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -51,7 +51,7 @@ export const DeleteLoaiDichVu = createAsyncThunk("DeleteLoaiDichVu", async (para
         if(res.status === 200){
             thunkApi.dispatch(SearchLoaiDichVu({reFetch: true}))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }

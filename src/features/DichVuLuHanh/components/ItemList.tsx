@@ -25,7 +25,7 @@ const fetchData = async (
 
 const fetchFilterData = async () => {
   const res = await requestGET(`dmchungs`, { groupcode: "LDVLH" });
-  return { loaiDichVu: res.data };
+  return { loaiDichVu: res?.data };
 };
 
 export const ItemList = () => {
@@ -61,8 +61,8 @@ export const ItemList = () => {
       );
       setState((prevState) => ({
         ...prevState,
-        data: res.data ?? [],
-        totalItems: res.count ?? 0,
+        data: res?.data ?? [],
+        totalItems: res?.data ?? 0,
         loading: false,
       }));
     };

@@ -40,9 +40,9 @@ const QuyHoachDuLichDetail: FC = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(id);
-            setState(prevState => ({ ...prevState, item: res.data ?? [], loading: false }));
+            setState(prevState => ({ ...prevState, item: res?.data ?? [], loading: false }));
             if (res?.data?.DinhKem) {
-                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res.data.DinhKem.split(',')[0]}` }));
+                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res?.data.DinhKem.split(',')[0]}` }));
             }
             else {
                 setState(prevState => ({ ...prevState, coverUrl: 'https://via.placeholder.com/700x500' }));
@@ -55,7 +55,7 @@ const QuyHoachDuLichDetail: FC = () => {
         const fetch = async () => {
             if (state.binhLuanData) {
                 const res = await fetchBinhLuan(state.binhLuanData);
-                if (res.data) {
+                if (res?.data) {
                     message.success('Thực hiện thành công');
                     topRef.current?.scrollIntoView({ behavior: 'smooth' });
                 } else {

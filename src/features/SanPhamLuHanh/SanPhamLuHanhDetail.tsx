@@ -61,7 +61,7 @@ const SanPhamLuHanhDetail: FC = () => {
         const fetch = async () => {
             if (state.orderData) {
                 const res = await fetchtoCard(state.orderData);
-                if (res.data) {
+                if (res?.data) {
                     message.success('Đặt hàng thành công');
                 } else {
                     message.error('Đặt hàng thất bại');
@@ -77,18 +77,18 @@ const SanPhamLuHanhDetail: FC = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(id);
-            setState(prevState => ({ ...prevState, item: res.data ?? [], loading: false }));
-            if (res.data.DinhKem) {
+            setState(prevState => ({ ...prevState, item: res?.data ?? [], loading: false }));
+            if (res?.data.DinhKem) {
 
-                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res.data.DinhKem.split(',')[0]}` }));
+                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res?.data.DinhKem.split(',')[0]}` }));
             }
             else {
                 setState(prevState => ({ ...prevState, coverUrl: 'https://via.placeholder.com/700x500' }));
             }
-            let loaisanphamluhanhid = res.data?.LoaiSanPhamLuHanhID;
+            let loaisanphamluhanhid = res?.data?.LoaiSanPhamLuHanhID;
             if (loaisanphamluhanhid) {
                 var similarRes = await fetchSimilarData(loaisanphamluhanhid, id);
-                setState(prevState => ({ ...prevState, similarItems: similarRes.data ?? [] }));
+                setState(prevState => ({ ...prevState, similarItems: similarRes?.data ?? [] }));
             }
         };
         fetch();

@@ -26,7 +26,7 @@ const fetchData = async (
 
 const fetchFilterData = async () => {
     const res = await requestGET(`dmchungs`, { groupcode: 'LSPLH', });
-    return { loaiSanPham: res.data };
+    return { loaiSanPham: res?.data };
 };
 
 
@@ -56,7 +56,7 @@ export const ItemList = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(state.page, state.offset, state.search, state.loaiSanPhamSelected);
-            setState(prevState => ({ ...prevState, data: res.data ?? [], totalItems: res.count ?? 0, loading: false }));
+            setState(prevState => ({ ...prevState, data: res?.data ?? [], totalItems: res?.data ?? 0, loading: false }));
         };
         fetch();
     }, [state.page, state.offset, state.search, state.loaiSanPhamSelected]);

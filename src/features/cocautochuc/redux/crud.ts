@@ -8,7 +8,7 @@ export const SearchCoCauToChuc = createAsyncThunk
     <IPaginationResponse<ICoCauToChuc[]>, IPickSearch<ICoCauToChuc, "groupCode" | "groupName" | "ofGroupCode" | "active">, { rejectValue: IError }>("SearchCoCauToChuc", async (params, thunkApi) => {
         try {
             const res = await coCauToChucService.Search(params)
-            return res.data;
+            return res?.data;
         } catch (error) {
             return thunkApi.rejectWithValue(error as IError)
         }
@@ -17,7 +17,7 @@ export const SearchCoCauToChuc = createAsyncThunk
 export const GetCoCauToChuc = createAsyncThunk<IResult<ICoCauToChuc>, string, { rejectValue: IError }>("GetCoCauToChuc", async (id, thunkApi) => {
     try {
         const res = await coCauToChucService.Get(id)
-        return res.data;
+        return res?.data;
     } catch (error) {
         return thunkApi.rejectWithValue(error as IError)
     }
@@ -30,7 +30,7 @@ export const UpdateCoCauToChuc = createAsyncThunk("UpdateCoCauToChuc", async (da
             thunkApi.dispatch(SearchCoCauToChuc({pageNumber:1, pageSize: 10000, reFetch: true }))
             thunkApi.dispatch(GetCoCauToChuc(data.id as string))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -43,7 +43,7 @@ export const AddCoCauToChuc = createAsyncThunk("AddCoCauToChuc", async (data: IC
         if (res.status == 201) {
             thunkApi.dispatch(SearchCoCauToChuc({pageNumber:1, pageSize: 10000, reFetch: true }))
         }
-        return res.data;
+        return res?.data;
     } catch (error) {
         return thunkApi.rejectWithValue(error as IError)
     }
@@ -54,7 +54,7 @@ export const DeleteCoCauToChuc = createAsyncThunk("DeleteCoCauToChuc", async (pa
         if (res.status === 200) {
             thunkApi.dispatch(SearchCoCauToChuc({ reFetch: true }))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }

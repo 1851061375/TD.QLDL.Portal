@@ -78,19 +78,19 @@ const PhieuTraLoiDetail: FC = () => {
     const fetch = async () => {
       setState((prevState) => ({ ...prevState, loading: true }));
       const res = await fetchData(id);
-      if (res.data) {
+      if (res?.data) {
         // Set form fields with the fetched data
         form.setFieldsValue({
-          Email: res.data.Email,
-          Rate: res.data.Rate,
-          GopY: res.data.GopY,
-          ...Object.fromEntries(res.data.TraLois?.map((item: any) => [item.CauHoiID, item.NoiDung])),
+          Email: res?.data.Email,
+          Rate: res?.data.Rate,
+          GopY: res?.data.GopY,
+          ...Object.fromEntries(res?.data.TraLois?.map((item: any) => [item.CauHoiID, item.NoiDung])),
         });
       }
       setState((prevState) => ({
         ...prevState,
-        item: res.data ?? [],
-        rate: res.data.Rate,
+        item: res?.data ?? [],
+        rate: res?.data.Rate,
         loading: false,
       }));
     };
@@ -101,7 +101,7 @@ const PhieuTraLoiDetail: FC = () => {
     const fetch = async () => {
       if (state.answers) {
         const res = await fetchAnswers(state.answers, id);
-        if (res.data) {
+        if (res?.data) {
           message.success("Gửi câu trả lời thành công");
           navigate("/khac/khao-sat-truc-tuyen");
         } else {

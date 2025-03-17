@@ -29,7 +29,7 @@ const fetchFilterData = async () => {
     const res = await requestGET(`dmdiabans`, { code: '11' });
     const resLoaiDN = await requestGET(`dmchungs`, { groupcode: 'LHDV' });
     const resLinhVuc = await requestGET(`dmchungs`, { groupcode: 'LVHD' });
-    return { diaBan: res.data, loaiDoanhNghiep: resLoaiDN.data, linhVuc: resLinhVuc.data };
+    return { diaBan: res?.data, loaiDoanhNghiep: resLoaiDN.data, linhVuc: resLinhVuc.data };
 };
 
 export const ItemList = () => {
@@ -61,7 +61,7 @@ export const ItemList = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(state.page, state.offset, state.search, state.diaBanSelected, state.loaiDNSelected, state.linhVucSelected);
-            setState(prevState => ({ ...prevState, data: res.data ?? [], totalItems: res.count ?? 0, loading: false }));
+            setState(prevState => ({ ...prevState, data: res?.data ?? [], totalItems: res?.data ?? 0, loading: false }));
         };
         fetch();
     }, [state.page, state.offset, state.search, state.diaBanSelected, state.loaiDNSelected, state.linhVucSelected]);

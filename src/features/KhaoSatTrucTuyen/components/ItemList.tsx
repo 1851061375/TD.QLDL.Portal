@@ -36,7 +36,7 @@ export const ItemList = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(state.page, state.offset, state.search,);
-            setState(prevState => ({ ...prevState, data: res.data ?? [], totalItems: res.count ?? 0, loading: false }));
+            setState(prevState => ({ ...prevState, data: res?.data ?? [], totalItems: res?.data ?? 0, loading: false }));
         };
         fetch();
     }, [state.page, state.offset, state.search]);

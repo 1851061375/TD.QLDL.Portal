@@ -89,7 +89,7 @@ export const VanBanBDSTable = () => {
                         }
                     )
                 );
-                setDataBDS(res.data ?? []);
+                setDataBDS(res?.data ?? []);
                 setCount(res?.count ?? 0);
                 setLoading(false);
 

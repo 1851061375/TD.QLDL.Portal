@@ -18,7 +18,7 @@ function FooterLayout() {
     //                 `GetFooters`,
     //             );
     //             console.log(res?.data)
-    //             setData(res.data ?? {});
+    //             setData(res?.data ?? {});
     //             setLoading(false);
 
     //         } catch (error) {

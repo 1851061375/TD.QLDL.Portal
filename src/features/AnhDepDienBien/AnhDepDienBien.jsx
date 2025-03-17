@@ -19,7 +19,7 @@ const AnhDepDienBien = () => {
       const res = await fetchData();
       setState((prevState) => ({
         ...prevState,
-        anhDeps: res.data ?? [],
+        anhDeps: res?.data ?? [],
         loading: false,
       }));
     };

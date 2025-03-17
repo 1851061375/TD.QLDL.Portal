@@ -42,7 +42,7 @@ const fetchData = async (
 const fetchFilterData = async () => {
   const res = await requestGET(`dmdiabans`, { code: "11" });
   const resNgayMoCua = await requestGET(`dmchungs`, { groupcode: "TGMC" });
-  return { diaBan: res.data, ngayMoCua: resNgayMoCua.data };
+  return { diaBan: res?.data, ngayMoCua: resNgayMoCua?.data };
 };
 
 export const ItemList = () => {
@@ -83,8 +83,8 @@ export const ItemList = () => {
       );
       setState((prevState) => ({
         ...prevState,
-        data: res.data ?? [],
-        totalItems: res.count ?? 0,
+        data: res?.data ?? [],
+        totalItems: res?.data ?? 0,
         loading: false,
       }));
     };

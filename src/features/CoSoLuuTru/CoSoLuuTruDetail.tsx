@@ -51,13 +51,13 @@ const CoSoLuuTruDetail: FC = () => {
       const res = await fetchData(id);
       setState((prevState) => ({
         ...prevState,
-        item: res.data ?? [],
+        item: res?.data ?? [],
         loading: false,
       }));
-      if (res.data.DinhKem) {
+      if (res?.data.DinhKem) {
         setState((prevState) => ({
           ...prevState,
-          coverUrl: `${Domain + res.data.DinhKem.split(",")[0]}`,
+          coverUrl: `${Domain + res?.data.DinhKem.split(",")[0]}`,
         }));
       } else {
         setState((prevState) => ({
@@ -65,13 +65,13 @@ const CoSoLuuTruDetail: FC = () => {
           coverUrl: "https://via.placeholder.com/700x500",
         }));
       }
-      let loaiLuuTruID = res.data?.LoaiLuuTruID;
+      let loaiLuuTruID = res?.data?.LoaiLuuTruID;
       console.log(loaiLuuTruID)
       if (loaiLuuTruID) {
         var similarRes = await fetchSimilarData(loaiLuuTruID, id);
         setState((prevState) => ({
           ...prevState,
-          similarItems: similarRes.data ?? [],
+          similarItems: similarRes?.data ?? [],
         }));
       }
     };

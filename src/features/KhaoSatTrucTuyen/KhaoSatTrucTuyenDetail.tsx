@@ -77,7 +77,7 @@ const KhaoSatTrucTuyenDetail: FC = () => {
       const res = await fetchData(id);
       setState((prevState) => ({
         ...prevState,
-        item: res.data ?? [],
+        item: res?.data ?? [],
         loading: false,
       }));
     };
@@ -88,7 +88,7 @@ const KhaoSatTrucTuyenDetail: FC = () => {
     const fetch = async () => {
       if (state.answers) {
         const res = await fetchAnswers(state.answers);
-        if (res.data) {
+        if (res?.data) {
           message.success("Gửi câu trả lời thành công");
           navigate("/khac/khao-sat-truc-tuyen");
         } else {

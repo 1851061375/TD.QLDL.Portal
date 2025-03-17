@@ -51,13 +51,13 @@ const CuaHangLuuNiemDetail: FC = () => {
       const res = await fetchData(id);
       setState((prevState) => ({
         ...prevState,
-        item: res.data ?? [],
+        item: res?.data ?? [],
         loading: false,
       }));
-      if (res.data.DinhKem) {
+      if (res?.data.DinhKem) {
         setState((prevState) => ({
           ...prevState,
-          coverUrl: `${Domain + res.data.DinhKem.split(",")[0]}`,
+          coverUrl: `${Domain + res?.data.DinhKem.split(",")[0]}`,
         }));
       } else {
         setState((prevState) => ({
@@ -65,12 +65,12 @@ const CuaHangLuuNiemDetail: FC = () => {
           coverUrl: "https://via.placeholder.com/700x500",
         }));
       }
-      let loaiid = res.data?.LoaiCuaHangLuuNiemDetailID;
+      let loaiid = res?.data?.LoaiCuaHangLuuNiemDetailID;
       if (loaiid) {
         var similarRes = await fetchSimilarData(loaiid, id);
         setState((prevState) => ({
           ...prevState,
-          similarItems: similarRes.data ?? [],
+          similarItems: similarRes?.data ?? [],
         }));
       }
     };

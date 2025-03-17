@@ -8,7 +8,7 @@ export const GetUser = createAsyncThunk
 <IUser, Pick<ICredential, "token">, {rejectValue : IError}>("GetUser", async (params, thunkApi) => {
     try {
         const res = await userService.GetUser(params)
-        return res.data;
+        return res?.data;
     } catch (error) {
         return thunkApi.rejectWithValue(error as IError)
     }
@@ -19,7 +19,7 @@ export const SearchUser = createAsyncThunk
     try {
         const res = await userService.Search(params)
         
-        return res.data;
+        return res?.data;
 
     } catch (error) {
         return thunkApi.rejectWithValue(error as IError)
@@ -30,7 +30,7 @@ export const GetUserById = createAsyncThunk
 <IResult<IUser>, string, {rejectValue : IError}>("GetUserById", async (id, thunkApi) => {
     try {
         const res = await userService.Get(id)
-        return res.data;
+        return res?.data;
     } catch (error) {
         return thunkApi.rejectWithValue(error as IError)
     }

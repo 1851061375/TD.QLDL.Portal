@@ -64,7 +64,7 @@ export const BaoCaoThiTruongBDSTable = () => {
                         }
                     )
                 );
-                setDataBaoCaoQLNhaO(res.data ?? []);
+                setDataBaoCaoQLNhaO(res?.data ?? []);
                 setCount(res?.count ?? 0);
                 setLoading(false);
 

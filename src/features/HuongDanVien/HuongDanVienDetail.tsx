@@ -31,13 +31,13 @@ const HuongDanVienDetail: FC = () => {
       const res = await fetchData(id);
       setState((prevState) => ({
         ...prevState,
-        item: res.data ?? [],
+        item: res?.data ?? [],
         loading: false,
       }));
-      if (res.data.DinhKem) {
+      if (res?.data.DinhKem) {
         setState((prevState) => ({
           ...prevState,
-          coverUrl: `${Domain + res.data.DinhKem.split(",")[0]}`,
+          coverUrl: `${Domain + res?.data.DinhKem.split(",")[0]}`,
         }));
       } else {
         setState((prevState) => ({

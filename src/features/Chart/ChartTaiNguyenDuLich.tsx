@@ -14,7 +14,7 @@ export const ChartTaiNguyenDuLich = () => {
             setLoading(true);
             try {
                 const res = await requestGET('tainguyendulich');
-                setData(res.data ?? []);
+                setData(res?.data ?? []);
 
             } catch (error) {
                 console.error(error);

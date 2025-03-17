@@ -37,10 +37,10 @@ const SanPhamDuLichDetail: FC = () => {
         const fetch = async () => {
             setState(prevState => ({ ...prevState, loading: true }));
             const res = await fetchData(id);
-            setState(prevState => ({ ...prevState, item: res.data ?? [], loading: false }));
-            if (res.data.DinhKem) {
+            setState(prevState => ({ ...prevState, item: res?.data ?? [], loading: false }));
+            if (res?.data.DinhKem) {
 
-                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res.data.DinhKem.split(',')[0]}` }));
+                setState(prevState => ({ ...prevState, coverUrl: `${Domain + res?.data.DinhKem.split(',')[0]}` }));
             }
             else {
                 setState(prevState => ({ ...prevState, coverUrl: 'https://via.placeholder.com/700x500' }));

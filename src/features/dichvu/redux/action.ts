@@ -7,7 +7,7 @@ export const SearchDichVu =
     createAsyncThunk<IPaginationResponse<IDichVu[]>, IPickSearch<IDichVu, "tenDichVu" | "tomTat" | "loaiDichVuId">>("SearchDichVu", async (params, thunkApi) => {
         try {
             const res = await dichVuApi.Search(params)
-            return res.data
+            return res?.data
         } catch (error) {
             return thunkApi.rejectWithValue(error)
         }
@@ -17,7 +17,7 @@ export const GetDichVu =
     createAsyncThunk<IResult<IDichVu>, string>("GetDichVu", async (id, thunkApi) => {
         try {
             const res = await dichVuApi.Get(id);
-            return res.data
+            return res?.data
         } catch (error) {
             return thunkApi.rejectWithValue(error)
         }
@@ -29,7 +29,7 @@ export const AddDichVu = createAsyncThunk("AddDichVu", async (data: IDichVu, thu
         if (res.status === 201) {
             thunkApi.dispatch(SearchDichVu({ reFetch: true }))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -42,7 +42,7 @@ export const UpdateDichVu = createAsyncThunk("UpdateDichVu", async (data: IOmitU
         if (res.status === 200) {
             thunkApi.dispatch(SearchDichVu({ reFetch: true }))
         }
-        return res.data
+        return res?.data
     } catch (error) {
         return thunkApi.rejectWithValue(error)
     }
@@ -54,7 +54,7 @@ export const DeleteDichVu = createAsyncThunk("DeleteDichVu", async (data: ISoftD
         if (res.status === 200) {
             thunkApi.dispatch(SearchDichVu({ reFetch: true }))
         }
-        return res.data
+        return res?.data
 
     } catch (error) {
         return thunkApi.rejectWithValue(error)
